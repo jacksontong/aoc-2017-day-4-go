@@ -1,7 +1,6 @@
 package security
 
 import (
-	"reflect"
 	"sort"
 	"strings"
 )
@@ -50,5 +49,15 @@ func isAnagram(w1, w2 string) bool {
 	sort.Strings(first)
 	sort.Strings(second)
 
-	return reflect.DeepEqual(first, second)
+	if len(first) != len(second) {
+		return false
+	}
+
+	for i, f := range first {
+		if f != second[i] {
+			return false
+		}
+	}
+
+	return true
 }
