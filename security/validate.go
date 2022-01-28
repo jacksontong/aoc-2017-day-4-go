@@ -23,11 +23,13 @@ func ValidatePassword(pass string) bool {
 
 				if isAnagram(word, next) {
 					checker[word] = false
+					// mark the next word as invalid
+					// so it'll skip the inner loop
 					checker[next] = false
 				}
 			}
 		} else {
-			// validate pass phrase here
+			// the word is duplicated
 			checker[word] = false
 		}
 	}
